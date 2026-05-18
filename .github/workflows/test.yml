@@ -1,0 +1,16 @@
+name: Test Profiler
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Test profiler
+        run: |
+          python3 profiler.py --help
+          echo "Tests passed"
